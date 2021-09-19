@@ -1,6 +1,45 @@
 package giulian.LinkedList;
 
 class MyLinkedList {
+
+    public static void main(String[] args) {
+        MyLinkedList listaL = new MyLinkedList();
+        listaL.addAtHead(10);
+        listaL.addAtTail(22);
+        listaL.addAtTail(5);
+        listaL.addAtTail(10);
+        listaL.addAtTail(44);
+        listaL.addAtTail(123);
+        listaL.addAtTail(665);
+        listaL.addAtTail(1110);
+
+        MyLinkedList.Node current = listaL.head;
+        MyLinkedList.Node prev = null;
+        MyLinkedList.Node next = null;
+
+
+
+        while (current!=null){
+            //  igual al siguiente
+            next = current.next;          //next = 22;      // 5
+
+
+            //pointer to
+            current.next = prev;                // points behind null // el pointer apunta 10
+
+            //
+            prev = current;                 // va para delante  // same
+            current = next;                 // se mueve al siguiente... // same
+        }
+        // dar vuelta
+        while(prev!=null){
+            System.out.println(prev.val);
+            prev = prev.next;
+        }
+
+    }
+
+
     class Node {
         int val;
         Node next;
